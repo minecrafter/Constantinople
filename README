@@ -7,8 +7,9 @@ Bot commands:
 Admin-only:
 
 !startlogging - this begins logging
-!stoplogging - this stops logging
-!pauselogging - this pauses logging
+!stoplogging - this stops logging (but doesn't clear the log)
+!pastebinlog - pastes the log to pastebin.ca
+!clearlog - clears the channel's log
 !resumelogging - this resumes logging
 !globalnotice - this announces a message to all channels the bot is in
 !globalban - this bans a user in all channels the bot is in. The bot will attempt obtaining op via ChanServ if needed.

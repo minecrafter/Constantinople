@@ -7,58 +7,57 @@ namespace Constantinople
 {
 	public class IrcBot
 	{
-		Dictionary<string, Logger> s = new Dictionary<string, Logger>();
+		Dictionary<string, Logger> logs = new Dictionary<string, Logger>();
 		public LinkedList<string> admins = new LinkedList<string>();
 		public IrcBot ()
 		{
 		}
 		public void EnableChannel (string channel)
 		{
-			s.Add (channel, new Logger());
+			logs.Add (channel, new Logger());
 		}
 		public void OnChannelMessage (object sender, IrcEventArgs e)
 		{
 			if (!e.Data.MessageArray [0].StartsWith ("!")) {
-				if (!s.ContainsKey (e.Data.Channel))
+				if (!logs.ContainsKey (e.Data.Channel))
 					EnableChannel (e.Data.Channel);
-				s [e.Data.Channel].AddLine ("[" + e.Data.Channel + "] <" + e.Data.Nick + "> " + e.Data.Message);
+				logs [e.Data.Channel].AddLine ("[" + e.Data.Channel + "] <" + e.Data.Nick + "> " + e.Data.Message);
 			}
 			switch (e.Data.MessageArray [0]) {
 			case "!startlogging":
-				if (admins.Contains(e.Data.Host)) {
-					s[e.Data.Channel].Disabled = false;
-					s[e.Data.Channel].Clear();
+				if (admins.Contains(e.Data.Host) && logs[e.Data.Channel].Disabled) {
+					logs[e.Data.Channel].Disabled = false;
+					logs[e.Data.Channel].Clear();
 					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Logging enabled for " + e.Data.Channel);
 				}
 				break;
-			case "!pauselogging":
-				if (admins.Contains(e.Data.Host) && !s[e.Data.Channel].Disabled) {
-					s[e.Data.Channel].Disabled = true;
-					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Logging paused for " + e.Data.Channel);
+			case "!clearlog":
+				if (admins.Contains(e.Data.Host)) {
+					logs[e.Data.Channel].Clear();
+					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Log cleared for " + e.Data.Channel);
 				}
 				break;
 			case "!resumelogging":
-				if (admins.Contains(e.Data.Host) && s[e.Data.Channel].Disabled) {
-					s[e.Data.Channel].Disabled = true;
-					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Logging paused for " + e.Data.Channel);
+				if (admins.Contains(e.Data.Host) && logs[e.Data.Channel].Disabled) {
+					logs[e.Data.Channel].Disabled = true;
+					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Logging resumed for " + e.Data.Channel);
 				}
 				break;
 			case "!stoplogging":
-				if (admins.Contains(e.Data.Host)) {
-					s[e.Data.Channel].Disabled = true;
-					s[e.Data.Channel].Clear();
-					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Logging disabled for " + e.Data.Channel);
+				if (admins.Contains(e.Data.Host) && !logs[e.Data.Channel].Disabled) {
+					logs[e.Data.Channel].Disabled = true;
+					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Logging stopped for " + e.Data.Channel + ". Use !resumelogging to resume it, or !clearlog to clear the log.");
 				}
 				break;
 			case "!pastebinlog":
 				if (admins.Contains(e.Data.Host)) {
 					Constantinople.irc.SendMessage (SendType.Message, e.Data.Channel, "Sending log, please wait...");
-					Thread oThread = new Thread(new ThreadStart(new PastebinCaPoster(s[e.Data.Channel].ToString(), e.Data.Channel).ThreadRun));
+					Thread oThread = new Thread(new ThreadStart(new PastebinCaPoster(logs[e.Data.Channel].ToString(), e.Data.Channel).ThreadRun));
 					oThread.Start();
 				}
 				break;
 			case "!greplog":
-				using (System.IO.StringReader reader = new System.IO.StringReader(s[e.Data.Channel].ToString())) {
+				using (System.IO.StringReader reader = new System.IO.StringReader(logs[e.Data.Channel].ToString())) {
 					bool read=true;
 					while(read) {
 						string s2 = reader.ReadLine();

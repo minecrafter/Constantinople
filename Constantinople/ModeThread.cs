@@ -22,7 +22,7 @@ namespace Constantinople
 			if (!Constantinople.irc.GetChannel (chan).Ops.Contains (Constantinople.irc.Nickname)) {
 				shouldRmv = true;
 				Constantinople.irc.SendMessage (SendType.Message, "ChanServ", "op " + chan);
-				Thread.Sleep (50); // 50 milliseconds to get op
+				Thread.Sleep (200); // 200 milliseconds to get op
 			}
 			switch (mode) {
 			case ModeOption.Ban:
