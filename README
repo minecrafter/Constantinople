@@ -17,3 +17,7 @@ Admin-only:
 Normal users:
 
 !greplog - this allows a user to search the log
+
+To run the bot:
+
+mono Constantinople.exe settings.ini
