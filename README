@@ -1,0 +1,19 @@
+This is Constantinople, an C# IRC bot.
+
+You will need SmartIrc4net and to modify settings.ini (located in Constantinople/).
+
+Bot commands:
+
+Admin-only:
+
+!startlogging - this begins logging
+!stoplogging - this stops logging
+!pauselogging - this pauses logging
+!resumelogging - this resumes logging
+!globalnotice - this announces a message to all channels the bot is in
+!globalban - this bans a user in all channels the bot is in. The bot will attempt obtaining op via ChanServ if needed.
+!globalunban - same as above, but unbans the user
+
+Normal users:
+
+!greplog - this allows a user to search the log

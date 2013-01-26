@@ -1,0 +1,31 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Constantinople/IrcBot.cs">
+    <Files>
+      <File FileName="Constantinople/Constantinople.cs" Line="38" Column="88" />
+      <File FileName="Constantinople/IrcBot.cs" Line="4" Column="7" />
+      <File FileName="Constantinople/Logger.cs" Line="18" Column="27" />
+      <File FileName="Constantinople/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Constantinople/ModeThread.cs" Line="25" Column="35" />
+      <File FileName="Constantinople/ModeOption.cs" Line="8" Column="8" />
+      <File FileName="Constantinople/PastebinCaPoster.cs" Line="25" Column="21" />
+      <File FileName="Constantinople/settings.ini" Line="5" Column="49" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Constantinople" expanded="True" selected="True" />
+          <Node name="SmartIrc4net" expanded="True">
+            <Node name="src" expanded="True">
+              <Node name="IrcClient" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
