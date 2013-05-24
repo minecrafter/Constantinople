@@ -5,7 +5,8 @@ namespace Constantinople
 	public enum ModeOption
 	{
 		Ban,
-		Unban
+		Unban,
+		Kick
 	}
 }
 

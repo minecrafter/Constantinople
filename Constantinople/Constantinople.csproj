@@ -45,7 +45,7 @@
     <Compile Include="Constantinople.cs" />
     <Compile Include="PastebinCaPoster.cs" />
     <Compile Include="ModeThread.cs" />
-    <Compile Include="ModeOption.cs" />
+    <Compile Include="Voter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

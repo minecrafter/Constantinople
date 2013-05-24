@@ -1,20 +1,22 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Constantinople/IrcBot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Constantinople/Voter.cs">
     <Files>
-      <File FileName="Constantinople/Constantinople.cs" Line="38" Column="88" />
-      <File FileName="Constantinople/IrcBot.cs" Line="4" Column="7" />
-      <File FileName="Constantinople/Logger.cs" Line="18" Column="27" />
-      <File FileName="Constantinople/AssemblyInfo.cs" Line="1" Column="1" />
-      <File FileName="Constantinople/ModeThread.cs" Line="25" Column="35" />
-      <File FileName="Constantinople/ModeOption.cs" Line="8" Column="8" />
-      <File FileName="Constantinople/PastebinCaPoster.cs" Line="25" Column="21" />
-      <File FileName="Constantinople/settings.ini" Line="5" Column="49" />
+      <File FileName="Constantinople/Constantinople.cs" Line="59" Column="12" />
+      <File FileName="Constantinople/IrcBot.cs" Line="47" Column="42" />
+      <File FileName="Constantinople/settings.ini" Line="5" Column="33" />
+      <File FileName="Constantinople/Voter.cs" Line="112" Column="4" />
+      <File FileName="Constantinople/Logger.cs" Line="8" Column="48" />
+      <File FileName="Constantinople/ModeThread.cs" Line="32" Column="43" />
+      <File FileName="Constantinople/ModeOption.cs" Line="9" Column="7" />
+      <File FileName="Constantinople/PastebinCaPoster.cs" Line="15" Column="13" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Constantinople" expanded="True" selected="True" />
+          <Node name="Constantinople" expanded="True">
+            <Node name="Voter.cs" selected="True" />
+          </Node>
           <Node name="SmartIrc4net" expanded="True">
             <Node name="src" expanded="True">
               <Node name="IrcClient" expanded="True" />

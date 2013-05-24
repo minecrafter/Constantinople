@@ -17,7 +17,7 @@ namespace Constantinople
 			if (!Disabled)
 				buff.AppendLine("[" + System.DateTime.Now.ToString("U") + "] " + msg);
 		}
-		public string ToString ()
+		override public string ToString ()
 		{
 			return buff.ToString ();
 		}

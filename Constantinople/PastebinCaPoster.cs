@@ -15,9 +15,19 @@ namespace Constantinople
 			chan = c;
 		}
 
+		private class LongRunningWebClient : WebClient
+		{
+            protected override WebRequest GetWebRequest(Uri address)
+            {
+                var objWebRequest= base.GetWebRequest(address);
+                objWebRequest.Timeout = 999999999;
+                return objWebRequest;
+            }
+		}
+
 		public void ThreadRun( )
 		{
-			using (var wb = new WebClient())
+			using (var wb = new LongRunningWebClient())
 			{
     			var data = new NameValueCollection();
     			data["content"] = text;
